@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anis Doua | Copywriter</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #4f46e5;
+    --color1: #e0ecff;
+    --color2: #f0e7ff;
+    --text-dark: #1e293b;
+    --text-mid: #475569;
+    --section-border: #ddd;
+  }
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, var(--color1), var(--color2), white);
+    background-size: 100% 400%;
+    animation: fadeLoop 15s ease-in-out infinite;
+    color: var(--text-dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+    padding-top: 120px; /* space for fixed navbar + title */
+  }
+
+  @keyframes fadeLoop {
+    0%, 100% { background-position: top; }
+    50% { background-position: bottom; }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.98);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 2rem;
+    height: 120px;
+    border-bottom: 1px solid var(--section-border);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  }
+
+  #title-image {
+    height: 90px;
+    user-select: none;
+    pointer-events: none;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    margin-left: 3rem;
+  }
+
+  .nav-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--accent);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -5px;
+    width: 100%; height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  #name-image {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    margin: 4rem auto 4rem auto;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  section {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem 3rem 2rem;
+    border-bottom: 1px solid var(--section-border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .line {
+    height: 3px;
+    width: 80px;
+    background-color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  section p {
+    font-size: 1.25rem;
+    color: var(--text-mid);
+  }
+
+  .before-after-section {
+    margin-top: 2rem;
+  }
+
+  .before-after-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .before-after-row img {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .before-after-row img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+    z-index: 10;
+    position: relative;
+  }
+
+  .vertical-divider {
+    width: 4px;
+    height: 120px;
+    background-color: var(--accent);
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .before-after-titles {
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 1.5rem auto;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--accent);
+    padding: 0 2rem;
+  }
+
+  .testimonial {
+    margin-top: 3rem;
+    font-style: italic;
+    color: var(--text-mid);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-size: 1.2rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 1rem;
+    margin-top: 6rem;
+    border-top: 1px solid var(--section-border);
+  }
+
+  @media (max-width: 740px) {
+    #title-image {
+      height: 60px;
+    }
+    .before-after-row {
+      flex-direction: column;
+    }
+    .vertical-divider {
+      display: none;
+    }
+    .before-after-titles {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .before-after-titles div {
+      width: 100%;
+      text-align: center;
+    }
+    .before-after-row img {
+      width: 90vw;
+    }
+    .nav-links {
+      gap: 1.5rem;
+    }
+    #name-image {
+      max-width: 240px;
+      margin: 2rem auto 3rem auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <img id="title-image" src="title.png" alt="Anis Doua Title" />
+  <div class="nav-links">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<img id="name-image" src="name.png" alt="Anis Doua" />
+
+<section id="home">
+  <p>
+    I’m a copywriter who loves turning ideas into clear, persuasive words. From marketing emails to scripts, I aim to write copy that feels real and speaks directly to the reader. I value clarity, purpose, and creativity. Whether it’s reaching new clients or telling a story, the right words make the difference.
+  </p>
+</section>
+
+<section id="work">
+  <div class="before-after-titles">
+    <div>Before</div>
+    <div>After</div>
+  </div>
+
+  <div class="before-after-section">
+    <div class="before-after-row">
+      <img src="before1.png" alt="Before 1" />
+      <div class="vertical-divider"></div>
+      <img src="after1.png" alt="After 1" />
+    </div>
+
+    <div class="before-after-row">
+      <img src="before2.png" alt="Before 2" />
+      <div class="vertical-divider"></div>
+      <img src="after2.png" alt="After 2" />
+    </div>
+
+    <div class="before-after-row">
+      <img src="before3.png" alt="Before 3" />
+      <div class="vertical-divider"></div>
+      <img src="after3.png" alt="After 3" />
+    </div>
+  </div>
+
+  <p class="testimonial">
+    “Working with Anis Doua has been a truly smooth and reliable experience. His attention to detail and ability to bring fresh, authentic voice to our copy made a noticeable difference in how our audience connects with our brand. Always professional, timely, and easy to communicate with — highly recommended.”
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <p>
+    <strong>Copywriting:</strong> Marketing emails, sales pages, scripts, newsletters<br/>
+    <strong>Research:</strong> Market research, competitive analysis, trend spotting<br/>
+    <strong>Communication:</strong> Clear, persuasive writing tailored to the audience
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> <a href="mailto:itsanisdxua.16@gmail.com">itsanisdxua.16@gmail.com</a></p>
+  <p><strong>Phone:</strong> <a href="tel:+213561804594">+213561804594</a></p>
+  <p><strong>Instagram:</strong> <a href="https://instagram.com/anisdxua" target="_blank" rel="noopener noreferrer">instagram.com/anisdxua</a></p>
+  <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/anisdoua" target="_blank" rel="noopener noreferrer">linkedin.com/in/anisdoua</a></p>
+</section>
+
+<footer>
+  &copy; 2025 Anis Doua — All rights reserved.
+</footer>
+
+<script>
+  // Smooth nav active link switching on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if(scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
